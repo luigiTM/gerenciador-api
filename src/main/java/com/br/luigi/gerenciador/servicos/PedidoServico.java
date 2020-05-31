@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.br.luigi.gerenciador.dominio.Pedido;
@@ -43,6 +46,11 @@ public class PedidoServico {
 
 	public List<Pedido> buscarTodos() {
 		return pedidoRepositorio.findAll();
+	}
+
+	public Page<Pedido> buscarPedidosPaginado(Integer pagina, Integer linhaPagina, String ordenacao, String direcao) {
+		PageRequest requisicaoDePagina = PageRequest.of(pagina, linhaPagina, Direction.valueOf(direcao), ordenacao);
+		return pedidoRepositorio.findAll(requisicaoDePagina);
 	}
 
 	private void atualizaInformacoesPedido(Pedido pedido, Pedido novoPedido) {

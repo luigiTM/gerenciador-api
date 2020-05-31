@@ -7,11 +7,13 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -36,6 +38,13 @@ public class ClienteRecurso {
 	public ResponseEntity<List<ClienteDTO>> buscarTodos() {
 		List<Cliente> clientes = clienteServico.buscarTodos();
 		List<ClienteDTO> clientesDTO = clientes.stream().map(cliente -> new ClienteDTO(cliente)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(clientesDTO);
+	}
+
+	@RequestMapping(value = "/paginado", method = RequestMethod.GET)
+	public ResponseEntity<Page<ClienteDTO>> buscarClientesPaginado(@RequestParam(value = "pagina", defaultValue = "0") Integer pagina, @RequestParam(value = "linhasPagina", defaultValue = "24") Integer linhaPagina, @RequestParam(value = "ordenacao", defaultValue = "nome") String ordenacao, @RequestParam(value = "direcao", defaultValue = "ASC") String direcao) {
+		Page<Cliente> clientes = clienteServico.buscarClientesPaginado(pagina, linhaPagina, ordenacao, direcao);
+		Page<ClienteDTO> clientesDTO = clientes.map(cliente -> new ClienteDTO(cliente));
 		return ResponseEntity.ok().body(clientesDTO);
 	}
 

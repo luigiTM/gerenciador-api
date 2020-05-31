@@ -5,7 +5,7 @@ import java.util.Date;
 
 import javax.validation.constraints.NotEmpty;
 
-import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.br.CPF;
 
 import com.br.luigi.gerenciador.dominio.Cliente;
 import com.br.luigi.gerenciador.servicos.validacao.ClienteInsercao;
@@ -19,7 +19,7 @@ public class ClienteDTO implements Serializable {
 	@NotEmpty(message = "Nome não pode ser vazio")
 	private String nome;
 	@NotEmpty(message = "CPF não pode ser vazio")
-	@Length(min = 11, max = 14, message = "CPF inválido")
+	@CPF
 	private String cpf;
 	private Date dataNascimento;
 

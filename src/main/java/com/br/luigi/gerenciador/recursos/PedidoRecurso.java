@@ -7,11 +7,13 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -36,6 +38,13 @@ public class PedidoRecurso {
 	public ResponseEntity<List<PedidoDTO>> buscarTodos() {
 		List<Pedido> pedidos = pedidoServico.buscarTodos();
 		List<PedidoDTO> pedidosDTO = pedidos.stream().map(pedido -> new PedidoDTO(pedido)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(pedidosDTO);
+	}
+
+	@RequestMapping(value = "/paginado", method = RequestMethod.GET)
+	public ResponseEntity<Page<PedidoDTO>> buscarPedidosPaginado(@RequestParam(value = "pagina", defaultValue = "0") Integer pagina, @RequestParam(value = "linhadPagina", defaultValue = "24") Integer linhaPagina, @RequestParam(value = "ordenacao", defaultValue = "dataCompra") String ordenacao, @RequestParam(value = "direcao", defaultValue = "ASC") String direcao) {
+		Page<Pedido> pedidos = pedidoServico.buscarPedidosPaginado(pagina, linhaPagina, ordenacao, direcao);
+		Page<PedidoDTO> pedidosDTO = pedidos.map(pedido -> new PedidoDTO(pedido));
 		return ResponseEntity.ok().body(pedidosDTO);
 	}
 

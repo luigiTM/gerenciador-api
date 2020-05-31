@@ -13,8 +13,8 @@
 	<artifactId>desafio-nexti-jr</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>desafio-nexti-jr</name>
-	<description>Desafio do processo seletivo da NEXTI</description>
+	<name>gerenciador-api</name>
+	<description>Gerenciador de clientes, produtos e pedidos</description>
 
 	<properties>
 		<java.version>11</java.version>
