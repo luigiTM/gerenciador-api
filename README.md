@@ -1,8 +1,8 @@
 # gerenciador-api
 
-API para aplicativo de gerenciamento de clientes, produtos e pedidos
+API para aplicativo de gerenciamento de clientes, produtos e pedidos.
 
-Tecnologias utilizadas:\
+## Tecnologias utilizadas:
 -Sprint Tools Suite 4\
 -Hibernate\
 -MySQL
@@ -13,7 +13,7 @@ Para a execução do projeto pode ser feita a importação diretamente no STS4.
 
 A API conta com os seguintes endpoints:
 
-GET:\
+### GET:
   /clientes - Retorna todos os clientes cadastrados no banco.\
   /clientes/{id} - Retorna o cliente que tenha o id fornecido.\
   /clientes/paginado?linhasPagina={l}&pagina={p}&direcao={d}&ordenacao={o} - Retorno os clientes de forma paginada, onde 'l' é o número de linhas por página(padrão 24), 'p' é o número da página, 'd' é a direção(padrão ASC), e 'o' é a ordenação(padrão campo nome).
@@ -26,7 +26,7 @@ GET:\
   /pedidos/{id}\
   /pedidos/paginados?linhasPagina={l}&pagina={p}&direcao={d}&ordenacao={o} - Retorno os pedidos de forma paginada, onde 'l' é o número de linhas por página(padrão 24), 'p' é o número da página, 'd' é a direção(padrão ASC), e 'o' é a ordenação(padrão campo dataCompra).
   
-  POST:\
+### POST:
   /clientes - Usado para inserção de novos clientes.\
   Ex:{\
         "nome" : "Teste",\
@@ -44,12 +44,12 @@ GET:\
   /pedidos - Usado para inserção de novos pedidos - Não finalizado.\
   Um erro personalizado indicando qual campo não passou na validação será exibido.
   
-  PUT:\
+### PUT:
   /clientes/{id} - Usado para atualizar clientes com o id fornecido, segue o mesmo modelo da inserção.\
   /produtos/{id} - Usado para atualizar produtos com o id fornecido, segue o mesmo modelo da inserção.\
   /pedidos/{id} - Usado para atualizar pedidos com o id fornecido, segue o mesmo modelo da inserção - Não finalizado.
   
-  DELETE:\
+### DELETE:
   /clientes/{id} - Usado para remover clientes com o id fornecido.\
   /produtos/{id} - Usado para remover produtos com o id fornecido.\
   /pedidos/{id} - Usado para remover pedidos com o id fornecido.
