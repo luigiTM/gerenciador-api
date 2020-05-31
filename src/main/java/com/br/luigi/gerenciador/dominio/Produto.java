@@ -1,11 +1,13 @@
-package com.br.luigi.desafio.dominio;
+package com.br.luigi.gerenciador.dominio;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Produto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -16,7 +18,7 @@ public class Produto implements Serializable {
 	private String sku;
 	private String nome;
 	private String descricao;
-	private float preco;
+	private Float preco;
 	private Integer quantidade;
 
 	public Produto() {

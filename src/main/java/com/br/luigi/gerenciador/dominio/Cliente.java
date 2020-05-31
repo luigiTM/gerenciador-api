@@ -1,4 +1,4 @@
-package com.br.luigi.desafio.dominio;
+package com.br.luigi.gerenciador.dominio;
 
 import java.io.Serializable;
 import java.util.Date;

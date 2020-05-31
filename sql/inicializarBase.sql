@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS pedido(
 );
 
 CREATE TABLE IF NOT EXISTS pedidoProduto(
+	idPedidoProduto INT NOT NULL,
 	idPedido INT NOT NULL,
     idProduto INT NOT NULL,
     PRIMARY KEY (idPedido,idProduto),

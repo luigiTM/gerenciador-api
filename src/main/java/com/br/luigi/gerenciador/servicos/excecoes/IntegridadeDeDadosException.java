@@ -1,4 +1,4 @@
-package com.br.luigi.desafio.servicos.excecoes;
+package com.br.luigi.gerenciador.servicos.excecoes;
 
 public class IntegridadeDeDadosException extends RuntimeException {
 
