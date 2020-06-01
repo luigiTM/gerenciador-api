@@ -3,7 +3,7 @@
 API para aplicativo de gerenciamento de clientes, produtos e pedidos
 
 Tecnologias utilizadas:\
--Sprint Tools Suite 4\
+-Sprint Tools Suite 4 com spring boot 2.3.0\
 -Hibernate\
 -MySQL
 

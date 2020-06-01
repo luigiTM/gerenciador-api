@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS cliente (
 	id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     nome varchar(50) NOT NULL,
-    cpf varchar(13) NOT NULL,
+    cpf varchar(11) NOT NULL,
     data_nascimento DATE
     );
 
