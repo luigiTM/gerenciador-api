@@ -9,7 +9,8 @@ Tecnologias utilizadas:\
 
 Para inicializar o banco de dados o script 'inicializarBase.sql' dentro da pasta 'sql' na raiz do projeto deve ser utilizado em um banco de dados vazio no MySQL.\
 O arquivo application.properties deve ser configurado com a conexão ao banco de dados.\
-Para a execução do projeto pode ser feita a importação diretamente no STS4.
+Para a execução do projeto pode ser feita a importação diretamente no STS4.\
+Para acessar a API basta acessar a URL `http://localhost:8080`.
 
 A API conta com os seguintes endpoints:
 
